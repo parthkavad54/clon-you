@@ -1,12 +1,15 @@
 {
   "name": "f2",
   "version": "1.0.0",
-  "description": "",
+  "description": "youtube clon video player",
   "license": "ISC",
   "author": "parth",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
