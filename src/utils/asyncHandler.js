@@ -1,7 +1,7 @@
 import { promises } from "dns"
 
 const asyncHandler = (requestHandler)=>{
-    (req,res,next)=>{
+    return (req,res,next)=>{
         promises.resolve(requestHandler(req,res,next)).catch((err)=> next(err)) 
     }
 }
