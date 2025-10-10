@@ -26,11 +26,11 @@ const userSchema = new Schema(
             index:true
         },
         avtar:{
-            type:string,// cloudinary url
+            type: String, // cloudinary url
             required:true,
         },
         coverImage:{
-            type:string,// cloudinary url
+            type:String,// cloudinary url
         },
         watchHistory:[
             {
@@ -39,11 +39,11 @@ const userSchema = new Schema(
             },
         ],
         password:{
-            type:string,
+            type:String,
             required:[true,"password is required"],
         },
         refreshToken:{
-            type:string,
+            type:String,
         },
     },
     {

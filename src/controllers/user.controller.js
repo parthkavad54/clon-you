@@ -27,15 +27,21 @@ const registerUser = asyncHandler ( async (req,res)=>{
         throw new apiError(400,"All feild is required");
     }
 
-    const existedUser= User.findOne({
+    const existedUser= await User.findOne({
         $or:[{username},{email}]
     })
     if (existedUser) {
         throw new apiError(409," user with username or email is already exists.")
     }
 
+
     const avtarLocalPath = req.files?.avtar[0]?.path;
-    const coverImageLocalPath = req.files?.coverImage[0]?.path;
+    /*const coverImageLocalPath = req.files?.coverImage[0]?.path;*/
+
+    let coverImageLocalPath;
+    if(res.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
+        coverImageLocalPath = req.files.coverImage[0].path;
+    }
 
     if (!avtarLocalPath) {
         throw new apiError(400,"avtar is required")
